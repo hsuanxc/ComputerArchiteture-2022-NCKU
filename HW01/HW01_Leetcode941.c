@@ -14,16 +14,18 @@ bool  validMountainArray(int* arr, int arrSize){
             status = 1;
         }
         else if(arr[i] > arr[i+1]){
+            status = 2;
             if(status == 0) return false;
         }
         ++i;
     }
+    if(status == 1) return false;
     return true;
 }
 
 int main(){
-    int arrSize = 3;
-    int a[3] = {0, 3, 1};
+    int arrSize = 9;
+    int a[9] = {2, 4, 7, 8, 10, 55, 48, 33, 2};
     int *arr = (int *)malloc(sizeof(int)*arrSize);
     arr = a;
     if (validMountainArray(arr, arrSize-1) == true)
